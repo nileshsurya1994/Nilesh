@@ -27,7 +27,7 @@ pipeline {
         stage('Test the app') {
             steps {
                 script {
-                    sh 'curl http://localhost:3000/health'
+                    sh 'curl http://65.2.148.212:3000/health'
                 }
             }
         }
@@ -44,7 +44,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        ssh-keyscan -H $PRODUCTION_IP_ADRESSS >> /var/lib/jenkins/.ssh/known_hosts
+                        ssh-keyscan -H $HOST_DNS >> /var/lib/jenkins/.ssh/known_hosts
                     '''
                 }
             }
@@ -57,10 +57,10 @@ pipeline {
 
                 steps {
                     sh '''
-                        ssh -v -i $DEPLOY_SSH_KEY ubuntu@$PRODUCTION_IP_ADRESSS '
+                        ssh -v -i $DEPLOY_SSH_KEY root@$HOST_DNS '
                             
                             if [ ! -d "todos-app" ]; then
-                                git clone https://github.com/AhmadMazaal/todos-app.git todos-app
+                                git clone https://github.com/nileshsurya1994/Nilesh.git
                                 cd todos-app
                             else
                                 cd todos-app
