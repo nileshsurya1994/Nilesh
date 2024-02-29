@@ -44,7 +44,7 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        ssh-keyscan -H $HOST_DNS >> /var/lib/jenkins/.ssh/known_hosts
+                        ssh-keyscan -H $PRODUCTION_IP_ADRESSS >> /var/lib/jenkins/.ssh/known_hosts
                     '''
                 }
             }
@@ -57,7 +57,7 @@ pipeline {
 
                 steps {
                     sh '''
-                        ssh -v -i $DEPLOY_SSH_KEY root@$HOST_DNS '
+                        ssh -v -i $DEPLOY_SSH_KEY root@$PRODUCTION_IP_ADRESSS '
                             
                             if [ ! -d "todos-app" ]; then
                                 git clone https://github.com/nileshsurya1994/Nilesh.git
