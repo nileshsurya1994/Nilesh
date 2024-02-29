@@ -4,8 +4,6 @@ pipeline {
     tools {
         nodejs "nodejs"
     }
-
-
     stages {
         stage('Install Packages') {
             steps {
@@ -14,7 +12,6 @@ pipeline {
                 }
             }
         }
-
         stage('Run the App') {
             steps {
                 script {
@@ -23,7 +20,6 @@ pipeline {
                 }
             }
         }
-
         stage('Test the app') {
             steps {
                 script {
@@ -31,7 +27,6 @@ pipeline {
                 }
             }
         }
-
         stage('Stop the App') {
             steps {
                 script {
@@ -39,7 +34,6 @@ pipeline {
                 }
             }
         }  
-
         stage('Add Host to known_hosts') {
             steps {
                 script {
@@ -49,12 +43,10 @@ pipeline {
                 }
             }
         }
-
         stage('Deploy') {
                 environment {
                     DEPLOY_SSH_KEY = credentials('AWS_INSTANCE_SSH')
                 }
-
                 steps {
                     sh '''
                         ssh -v -i $DEPLOY_SSH_KEY root@$PRODUCTION_IP_ADRESSS '
