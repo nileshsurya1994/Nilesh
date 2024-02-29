@@ -61,9 +61,9 @@ pipeline {
                             
                             if [ ! -d "todos-app" ]; then
                                 git clone https://github.com/nileshsurya1994/Nilesh.git
-                                cd todos-app
+                                cd /root/todos-app
                             else
-                                cd todos-app
+                                cd /root/todos-app
                                 git pull
                             fi
 
