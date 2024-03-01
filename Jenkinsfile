@@ -1,10 +1,9 @@
 pipeline {
     agent any
-    
-    tools {
-        NodeJS "nodejs"
-    }
 
+    tools {
+        nodejs "nodejs"
+    }
 
     stages {
         stage('Install Packages') {
