@@ -59,7 +59,7 @@ pipeline {
                         ssh -v -i $DEPLOY_SSH_KEY ubuntu@$PRODUCTION_IP_ADRESSS '
                             
                             if [ ! -d "todos-app" ]; then
-                                git clone https://github.com/AhmadMazaal/todos-app.git todos-app
+                                git clone https://github.com/nileshsurya1994/Nilesh.git 
                                 cd todos-app
                             else
                                 cd todos-app
